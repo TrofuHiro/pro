@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="Portfolio.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="portfolio" class="pic">
+        <h1 style="color: white;">Portfolio</h1>
+        <div class="portfolio-item">
+            <img src="https://scontent.fcnx4-1.fna.fbcdn.net/v/t39.30808-6/323168344_1199156354318799_8403672075629561826_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeG85FcUXBdM087uylqqhETIoNqaZrzQGcig2ppmvNAZyLKScDZ843EQkBh2-J0bHjCvrCD8oWp9qbZw6MO6atmv&_nc_ohc=DVuMM0rzNLYAX9GKr0R&_nc_ht=scontent.fcnx4-1.fna&oh=00_AfCXotLopN7djB43SK-DXIQboKJbl-6r_HUysZ3u6Go-UA&oe=64E42358" alt="Project 1" style="width: 240px;">
+        </div>
+    </section>
+    <section id="skills" class="skills">
+        <h1 style="color: white;">Skills</h1>
+        <div class="chart-container">
+            <canvas id="skillsChart"></canvas>
+        </div>
+    </section>
+    <script>
+        // Data for the chart
+        var skillsData = {
+            labels: ['HTML', 'CSS', 'JavaScript', 'Phython', 'Node.js'],
+            datasets: [{
+                label: 'Skill Level',
+                data: [30, 30, 50, 80, 10], // Change the skill level values here
+                backgroundColor: 'rgba(255, 99, 132, 0.2)', // Change the background color of bars
+                borderColor: 'rgba(255, 99, 132, 1)', // Change the border color of bars
+                borderWidth: 1
+            }]
+        };
+    
+        // Options for the chart
+        var skillsOptions = {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white' // Set legend text color to white
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        color: 'white' // Set y-axis labels text color to white
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'white' // Set x-axis labels text color to white
+                    }
+                }
+            }
+        };
+    
+        // Get the canvas element
+        var skillsCanvas = document.getElementById('skillsChart').getContext('2d');
+    
+        // Create the chart
+        var skillsChart = new Chart(skillsCanvas, {
+            type: 'bar', // Bar chart
+            data: skillsData,
+            options: skillsOptions
+        });
+    </script>
+    <section id="contact" class="con">
+        <h1 style="color: white;">Contact</h1>
+        <p style="color: white;">bajirawat2@email.com</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
